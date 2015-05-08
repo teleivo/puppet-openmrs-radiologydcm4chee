@@ -1,0 +1,5 @@
+---
+dcm4chee::jboss_http_port: 8081
+dcm4chee::jboss_ajp_connector_port: 8089
+staging::file::timeout: 800
+staging::deploy::timeout: 800
