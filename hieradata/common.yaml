@@ -1,5 +1,17 @@
 ---
 dcm4chee::jboss_http_port: 8081
 dcm4chee::jboss_ajp_connector_port: 8089
+dcm4chee::jboss_java_opts:
+    - '-Xms128m'
+    - '-Xmx740m'
+    - '-XX:MaxPermSize=256m'
+    - '-Dsun.rmi.dgc.client.gcInterval=3600000'
+    - '-Dsun.rmi.dgc.server.gcInterval=3600000'
+tomcat6::java_opts:
+    - '-Djava.awt.headless=true'
+    - '-Xms128m'
+    - '-Xmx512m'
+    - '-XX:MaxPermSize=128m'
+    - '-XX:+UseConcMarkSweepGC'
 staging::file::timeout: 800
 staging::deploy::timeout: 800
