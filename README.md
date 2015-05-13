@@ -75,7 +75,7 @@ A few things are still needed to integrate OpenMRS with dcm4chee:
  * configure DICOM MPPS message forwarding to the OpenMRS radiology module at [localhost:8081/jmx-console/](http://localhost:8081/jmx-console/) section **dcm4chee.archive, service=MPPSScu**
 
 ###How to speed up recreating a fresh VM
-Once you have completed all steps in [How to get started](readme=1#how-to-get-started) its a good idea to create your own custom vagrant box.
+Once you have completed all steps in [How to get started](#how-to-get-started) its a good idea to create your own custom vagrant box.
 This will allow you to quickly recreate a fresh VM without having to go through all the installation and configuration again :)
 
 So make sure you have fully completed the setup as described above and issue the following commands
