@@ -74,6 +74,13 @@ A few things are still needed to integrate OpenMRS with dcm4chee:
  * add the radiology module as DICOM Application Entity at [localhost:8081/dcm4chee-web3/](http://localhost:8081/dcm4chee-web3/)
  * configure DICOM MPPS message forwarding to the OpenMRS radiology module at [localhost:8081/jmx-console/](http://localhost:8081/jmx-console/) section **dcm4chee.archive, service=MPPSScu**
 
+####Important notes for Windows
+
+[librarian-puppet](https://github.com/rodjek/librarian-puppet) which is used to install all required puppet modules
+creates a highly nested structure in .tmp which might exceed the windows path
+limit of 260 characters. So please make sure to clone this project to a shorter
+path. See [issue](https://github.com/rodjek/librarian-puppet/issues/256) for further details
+
 ###How to speed up recreating a fresh VM
 Once you have completed all steps in [How to get started](#how-to-get-started) its a good idea to create your own custom vagrant box.
 This will allow you to quickly recreate a fresh VM without having to go through all the installation and configuration again :)
