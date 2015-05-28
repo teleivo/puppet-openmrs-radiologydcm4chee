@@ -60,19 +60,38 @@ vagrant ssh
 ```
 
 ####Final configurations
-A few things are still needed to integrate OpenMRS with dcm4chee:
-* OpenMRS
- * run through the [OpenMRS](http://localhost:8080/openmrs/) wizard to finish the OpenMRS installation
- * [download](https://wiki.openmrs.org/display/docs/Radiology+Module+with+dcm4chee) and deploy [openmrs-module-radiologydcm4chee] (https://github.com/openmrs/openmrs-module-radiologydcm4chee) in OpenMRS
- 
- Please go to https://wiki.openmrs.org/display/docs/Radiology+Module+with+dcm4chee to download the OpenMRS module and to get instructions on how to configure [openmrs-module-radiologydcm4chee] (https://github.com/openmrs/openmrs-module-radiologydcm4chee)
+A few things are still needed to finish the installation and integrate OpenMRS with dcm4chee:
+#####OpenMRS
+Run through the [OpenMRS](http://localhost:8080/openmrs/) wizard to finish
+the OpenMRS installation. **Note that the OpenMRS database has not yet been created but
+will be created by the wizard. The database user openmrs (password=openmrs) with "CREATE
+DATABASE" privileges does already exist.**
 
-* dcm4chee
- * configure weasis as the web viewer at [localhost:8081/jmx-console/](http://localhost:8081/jmx-console/) section **dcm4chee.web, service=WebConfig** set
-   - WebviewerNames= *weasis*
-    - WebviewerBaseUrls= *weasis:/weasis-pacs-connector/viewer-applet*
- * add the radiology module as DICOM Application Entity at [localhost:8081/dcm4chee-web3/](http://localhost:8081/dcm4chee-web3/)
- * configure DICOM MPPS message forwarding to the OpenMRS radiology module at [localhost:8081/jmx-console/](http://localhost:8081/jmx-console/) section **dcm4chee.archive, service=MPPSScu**
+In the wizard select/enter the following:
+* Which type of installation do you want? => Advanced
+* Step 1 of 5, Do you currently have an OpenMRS database installed that you
+would like to connect to? => No
+  - If no, what would you like to name this database? Database name => openmrs
+  - A user that has "CREATE DATABASE" privileges must be specified here...
+    * Username => openmrs
+    * Password => openmrs
+* Step 2 of 5, Do you currently have a database user other than root that has
+read/write access to the openmrs database? => Yes
+  - If yes, specify the login user name and password for that database user
+    * Username => openmrs
+    * Password => openmrs
+* Complete the remaining steps of the wizard
+
+[Download](https://wiki.openmrs.org/display/docs/Radiology+Module+with+dcm4chee) and deploy [openmrs-module-radiologydcm4chee] (https://github.com/openmrs/openmrs-module-radiologydcm4chee) in OpenMRS
+
+Please go to https://wiki.openmrs.org/display/docs/Radiology+Module+with+dcm4chee to download the OpenMRS module and to get instructions on how to configure [openmrs-module-radiologydcm4chee] (https://github.com/openmrs/openmrs-module-radiologydcm4chee)
+
+#####dcm4chee
+* configure weasis as the web viewer at [localhost:8081/jmx-console/](http://localhost:8081/jmx-console/) section **dcm4chee.web, service=WebConfig** set
+  - WebviewerNames= *weasis*
+  - WebviewerBaseUrls= *weasis:/weasis-pacs-connector/viewer-applet*
+* add the radiology module as DICOM Application Entity at [localhost:8081/dcm4chee-web3/](http://localhost:8081/dcm4chee-web3/)
+* configure DICOM MPPS message forwarding to the OpenMRS radiology module at [localhost:8081/jmx-console/](http://localhost:8081/jmx-console/) section **dcm4chee.archive, service=MPPSScu**
 
 ####Important notes for Windows
 
