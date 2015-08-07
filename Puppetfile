@@ -7,7 +7,7 @@ mod "puppetlabs/mysql"
 
 mod 'teleivo-dcm4chee',
   :git => "https://github.com/teleivo/puppet-dcm4chee.git",
-  :ref => '0.1.0'
+  :ref => '0.1.1'
 mod 'teleivo-openmrs',
   :git => "https://github.com/teleivo/puppet-openmrs.git",
   :ref => '0.0.5'
