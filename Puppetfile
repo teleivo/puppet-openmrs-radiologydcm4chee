@@ -2,7 +2,7 @@
 # Configuration for librarian-puppet
 
 forge "https://forgeapi.puppetlabs.com"
-mod "puppetlabs/java"
+mod "spantree/java7", "0.3.1"
 mod "puppetlabs/mysql"
 
 mod 'teleivo-dcm4chee',
