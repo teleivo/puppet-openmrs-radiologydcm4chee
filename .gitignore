@@ -2,3 +2,5 @@
 .tmp/
 .librarian/
 *.lock
+modules/
+*.swp

@@ -9,20 +9,20 @@
     * [How to get started](#how-to-get-started)
     * [How to speed up recreating a fresh VM](#how-to-speed-up-recreating-a-fresh-vm)
 4. [Limitations](#limitations)
+5. [Further reading](#further-reading)
 
 ##Overview
 
-Puppet/vagrant project to automatically create required infrastructure for [OpenMRS] (http://openmrs.org/), [dcm4chee] (http://www.dcm4che.org/) and [openmrs-module-radiologydcm4chee] (https://github.com/openmrs/openmrs-module-radiologydcm4chee)
+Puppet control repository including vagrant to automatically create required infrastructure for [OpenMRS] (http://openmrs.org/), [dcm4chee] (http://www.dcm4che.org/) and [openmrs-module-radiologydcm4chee] (https://github.com/openmrs/openmrs-module-radiologydcm4chee)
 
 ##Project Description
 
-This project is a collection of scripts which help you to provision a server running dcm4chee and OpenMRS.
+This project is a puppet control repository using [r10k] (https://github.com/puppetlabs/r10k) which helps you to provision a server running dcm4chee and OpenMRS.
 
 The goal is to ease development and help get people started with the OpenMRS module [openmrs-module-radiologydcm4chee] (https://github.com/openmrs/openmrs-module-radiologydcm4chee) a module adding RIS capabilities to OpenMRS.
 
 The provisioning of openmrs and dcm4chee is done by the following custom puppet modules:
 * [teleivo/dcm4chee] (https://github.com/teleivo/puppet-dcm4chee)
-* [teleivo/tomcat6] (https://github.com/teleivo/puppet-tomcat6)
 * [teleivo/openmrs] (https://github.com/teleivo/puppet-openmrs)
 
 ##Setup
@@ -41,10 +41,10 @@ cd puppet-openmrs-radiologydcm4chee
 vagrant up
 ```
 
-This will download a virtualbox VM with Ubuntu 14.04 64bit, install all necessary puppet modules via librarian-puppet and run the manifest/site.pp which
+This will download a virtualbox VM with Ubuntu 14.04 64bit, install all necessary puppet modules via [r10k] (https://github.com/puppetlabs/r10k) and run the manifest/site.pp which
 * installs mysql server
 * installs [dcm4chee] (http://www.dcm4che.org/) and deploys DICOM viewer [weasis] (https://github.com/nroduit/Weasis)
-* installs tomcat 6 and [OpenMRS] (http://openmrs.org/) version 1.9.7
+* installs tomcat 7 and deploys [OpenMRS] (http://openmrs.org/) version 1.11.4
 
 ####Access OpenMRS and dcm4chee
 Once vagrant is done with the installation of the VM you can access the following via your browser:
@@ -82,9 +82,7 @@ read/write access to the openmrs database? => Yes
     * Password => openmrs
 * Complete the remaining steps of the wizard
 
-[Download](https://wiki.openmrs.org/display/docs/Radiology+Module+with+dcm4chee) and deploy [openmrs-module-radiologydcm4chee] (https://github.com/openmrs/openmrs-module-radiologydcm4chee) in OpenMRS
-
-Please go to https://wiki.openmrs.org/display/docs/Radiology+Module+with+dcm4chee to download the OpenMRS module and to get instructions on how to configure [openmrs-module-radiologydcm4chee] (https://github.com/openmrs/openmrs-module-radiologydcm4chee)
+Refer to [openmrs-module-radiologydcm4chee] (https://github.com/openmrs/openmrs-module-radiologydcm4chee) on how to build and deploy the radiology module in OpenMRS.
 
 #####dcm4chee
 * configure weasis as the web viewer at [localhost:8081/jmx-console/](http://localhost:8081/jmx-console/) section **dcm4chee.web, service=WebConfig** set
@@ -93,13 +91,6 @@ Please go to https://wiki.openmrs.org/display/docs/Radiology+Module+with+dcm4che
 * add the radiology module as DICOM Application Entity at [localhost:8081/dcm4chee-web3/](http://localhost:8081/dcm4chee-web3/)
 * configure DICOM MPPS message forwarding to the OpenMRS radiology module at [localhost:8081/jmx-console/](http://localhost:8081/jmx-console/) section **dcm4chee.archive, service=MPPSScu**
 
-####Important notes for Windows
-
-[librarian-puppet](https://github.com/rodjek/librarian-puppet) which is used to install all required puppet modules
-creates a highly nested structure in .tmp which might exceed the windows path
-limit of 260 characters. So please make sure to clone this project to a shorter
-path. See [issue](https://github.com/rodjek/librarian-puppet/issues/256) for further details
-
 ###How to speed up recreating a fresh VM
 Once you have completed all steps in [How to get started](#how-to-get-started) its a good idea to create your own custom vagrant box.
 This will allow you to quickly recreate a fresh VM without having to go through all the installation and configuration again :)
@@ -107,10 +98,10 @@ This will allow you to quickly recreate a fresh VM without having to go through 
 So make sure you have fully completed the setup as described above and issue the following commands
 ```
 vagrant package --output openmrs-radiologydcm4chee.box
-vagrant box add openmrs-radiologydcm4chee openmrs-radiologydcm4chee.box
+vagrant box add openmrs-radiologydcm4chee.box --name openmrs-radiologydcm4chee
 ```
 
-To setup a new VM using your custom box go to a new directory and execute
+To setup a new VM using your custom box, create a new directory and in it execute
 ```
 vagrant init openmrs-radiologydcm4chee
 ```
@@ -118,3 +109,23 @@ vagrant init openmrs-radiologydcm4chee
 ##Limitations
 
 Currently you will only be able to run this on a machine providing support for 64bit virtualization which is due to the puppet module [teleivo/dcm4chee] (https://github.com/teleivo/puppet-dcm4chee).
+
+###Running tests
+This project contains a rake task to verify linitan errors and syntax.
+
+To install all dependencies for the testing environment:
+```bash
+sudo gem install bundler
+bundle install
+```
+
+To run the checks execute:
+```bash
+bundle exec rake test
+```
+
+##Further reading
+For infos about puppet control repositories and roles/profiles please read
+* https://docs.puppetlabs.com/pe/latest/quick_start_r10k.html
+* http://garylarizza.com/blog/2014/02/17/puppet-workflow-part-2/
+
