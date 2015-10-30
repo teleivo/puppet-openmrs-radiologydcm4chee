@@ -1,6 +1,7 @@
 # Role for installing/configuring RIS/PACS applications
 class role::rispacs {
 
+  contain 'profile::ntp'
   contain 'profile::packages'
   contain 'profile::mysql'
 
@@ -12,6 +13,7 @@ class role::rispacs {
   class { 'profile::tomcat':
     require => [ Class['profile::packages'],
                 Class['profile::java_oracle'],
+                Class['profile::ntp'],
     ]
   }
   contain 'profile::tomcat'
@@ -21,6 +23,7 @@ class role::rispacs {
                 Class['profile::mysql'],
                 Class['profile::java_oracle'],
                 Class['profile::tomcat'],
+                Class['profile::ntp'],
     ]
   }
   contain 'profile::openmrs'
@@ -29,6 +32,7 @@ class role::rispacs {
     require => [ Class['profile::packages'],
                 Class['profile::mysql'],
                 Class['profile::java_oracle'],
+                Class['profile::ntp'],
     ]
   }
   contain 'profile::dcm4chee'

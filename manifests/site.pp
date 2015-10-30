@@ -3,5 +3,5 @@ Exec {
 }
 
 node default {
-    include role::rispacs
+    include role::javatest
 }

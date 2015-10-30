@@ -7,6 +7,7 @@ mod "nanliu/staging", "1.0.3"
 mod "puppetlabs/mysql", "3.6.1"
 mod "puppetlabs/tomcat", "1.3.2"
 mod "puppetlabs/apt", "2.1.0"
+mod "puppetlabs/ntp", "4.1.0"
 
 mod 'tylerwalts/jdk_oracle',
   :git => 'https://github.com/tylerwalts/puppet-jdk_oracle.git',
