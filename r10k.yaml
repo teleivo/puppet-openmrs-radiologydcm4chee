@@ -1,0 +1,4 @@
+sources:
+  control:
+    basedir: '/etc/puppet/environments'
+    remote: 'https://github.com/teleivo/puppet-openmrs-radiologydcm4chee'

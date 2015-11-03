@@ -22,23 +22,18 @@ Vagrant.configure(2) do |config|
   config.ssh.forward_agent = true
 
   config.vm.provider "virtualbox" do |vb|
-    # Display the VirtualBox GUI when booting the machine
     vb.gui = false
-  
-    # Customize the amount of memory on the VM:
     vb.memory = "3000"
   end
 
-  # Install librarian-puppet and necessary puppet modules
+  # Install git, r10k
   config.vm.provision "shell" do |shell|
     shell.path = "bootstrap.sh"
   end
-
-  # Install/Configure dcm4chee/openmrs via puppet
-  config.vm.provision "puppet" do |puppet|
-    puppet.manifests_path = "manifests"
-    puppet.manifest_file = "site.pp"
-    puppet.hiera_config_path = "hiera.yaml"
-    puppet.module_path = 'modules'
+  # Deploy and apply puppet environment
+  # pass git branch name of environment you want to deploy via args
+  config.vm.provision "shell" do |shell|
+    shell.path = "puppet_deploy_apply.sh"
+    shell.args = "master"
   end
 end
