@@ -9,7 +9,8 @@
     * [How to get started](#how-to-get-started)
     * [How to speed up recreating a fresh VM](#how-to-speed-up-recreating-a-fresh-vm)
 4. [Limitations](#limitations)
-5. [Further reading](#further-reading)
+5. [Development](#development)
+6. [Further reading](#further-reading)
 
 ##Overview
 
@@ -45,6 +46,9 @@ This will download a virtualbox VM with Ubuntu 14.04 64bit, install all necessar
 * installs mysql server
 * installs [dcm4chee] (http://www.dcm4che.org/) and deploys DICOM viewer [weasis] (https://github.com/nroduit/Weasis)
 * installs tomcat 7 and deploys [OpenMRS] (http://openmrs.org/) version 1.11.4
+
+*Note: vagrant up will deploy the puppet code that is on a remote branch named like
+the branch you are currently on. (By default: master)*
 
 ####Access OpenMRS and dcm4chee
 Once vagrant is done with the installation of the VM you can access the following via your browser:
@@ -109,6 +113,8 @@ vagrant init openmrs-radiologydcm4chee
 ##Limitations
 
 Currently you will only be able to run this on a machine providing support for 64bit virtualization which is due to the puppet module [teleivo/dcm4chee] (https://github.com/teleivo/puppet-dcm4chee).
+
+##Development
 
 ###Running tests
 This project contains a rake task to verify linitan errors and syntax.
