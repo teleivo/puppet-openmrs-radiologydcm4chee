@@ -17,5 +17,4 @@ task :test => [
   :syntax,
   :lint,
   :spec,
-  :metadata,
 ]
