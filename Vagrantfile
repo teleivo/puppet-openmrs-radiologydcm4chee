@@ -32,8 +32,9 @@ Vagrant.configure(2) do |config|
   end
   # Deploy and apply puppet environment
   # pass git branch name of environment you want to deploy via args
+  git_branch_name = `git rev-parse --abbrev-ref HEAD`
   config.vm.provision "shell" do |shell|
     shell.path = "puppet_deploy_apply.sh"
-    shell.args = "master"
+    shell.args = git_branch_name
   end
 end
