@@ -3,13 +3,11 @@ class role::ris {
 
   contain 'profile::packages'
   contain 'profile::mysql'
-  contain 'profile::java_oracle'
   contain 'profile::tomcat'
   contain 'profile::openmrs'
 
   Class['profile::packages']->
   Class['profile::mysql']->
-  Class['profile::java_oracle']->
   Class['profile::tomcat']->
   Class['profile::openmrs']
 }
