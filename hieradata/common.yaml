@@ -13,6 +13,10 @@ dcm4chee_jboss_java_opts:
   - '-Dsun.rmi.dgc.server.gcInterval=3600000'
 tomcat_user: 'tomcat7'
 tomcat_catalina_base: '/var/lib/tomcat7/'
+tomcat_java_opts:
+  - '-Djava.awt.headless=true'
+  - '-Xmx1024m'
+  - '-XX:+UseConcMarkSweepGC'
 openmrs_application_data_directory: '/var/lib/OpenMRS/'
 staging::file::timeout: 800
 staging::deploy::timeout: 800

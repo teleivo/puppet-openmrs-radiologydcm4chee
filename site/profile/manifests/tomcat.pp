@@ -2,6 +2,11 @@
 class profile::tomcat {
   $tomcat_user = hiera('tomcat_user')
   $tomcat_catalina_base = hiera('tomcat_catalina_base')
+  $tomcat_java_opts = hiera('tomcat_java_opts', [
+                                                '-Djava.awt.headless=true',
+                                                '-Xmx128m',
+                                                '-XX:+UseConcMarkSweepGC',
+  ])
   $tomcat_instance_name = 'tomcat7'
   $tomcat_package_name = 'tomcat7'
   $tomcat_admin_package_name = 'tomcat7-admin'
@@ -20,6 +25,14 @@ class profile::tomcat {
   ::tomcat::instance { $tomcat_instance_name:
     package_name => $tomcat_package_name,
     require      => Class['::tomcat'],
+  }
+
+  $tomcat_java_opts_string = join($tomcat_java_opts, ' ')
+  augeas { 'JAVA_OPTS':
+    context => "/files/etc/default/${tomcat_instance_name}/",
+    changes => "set JAVA_OPTS \"'${tomcat_java_opts_string}'\"",
+    require => Tomcat::Instance[$tomcat_instance_name],
+    notify  => Tomcat::Service[$tomcat_service_name],
   }
 
   package { $tomcat_admin_package_name:
