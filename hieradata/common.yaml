@@ -1,8 +1,12 @@
 ---
+database_host: 'localhost'
 java_version_major: '7'
 java_version_update: '67'
 java_install_dir: '/opt'
 java_path: '/opt/jdk1.7.0_67/bin/java'
+dcm4chee_database_name: 'pacsdb'
+dcm4chee_database_owner: 'dcm4chee'
+dcm4chee_database_owner_password: 'dcm4chee'
 dcm4chee_jboss_http_port: 8081
 dcm4chee_jboss_ajp_connector_port: 8089
 dcm4chee_jboss_java_opts:
@@ -18,5 +22,8 @@ tomcat_java_opts:
   - '-Xmx1024m'
   - '-XX:+UseConcMarkSweepGC'
 openmrs_application_data_directory: '/var/lib/OpenMRS/'
+openmrs_database_name: 'openmrs'
+openmrs_database_owner: 'openmrs'
+openmrs_database_owner_password: 'openmrs'
 staging::file::timeout: 800
 staging::deploy::timeout: 800
