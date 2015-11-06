@@ -1,9 +1,9 @@
 ---
 database_host: 'localhost'
-java_version_major: '7'
-java_version_update: '67'
-java_install_dir: '/opt'
-java_path: '/opt/jdk1.7.0_67/bin/java'
+java_oracle_version_major: '7'
+java_oracle_version_update: '67'
+java_oracle_install_dir: '/opt'
+java_oracle_path: '/opt/jdk1.7.0_67/bin/java'
 dcm4chee_database_name: 'pacsdb'
 dcm4chee_database_owner: 'dcm4chee'
 dcm4chee_database_owner_password: 'dcm4chee'

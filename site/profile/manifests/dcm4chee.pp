@@ -1,6 +1,6 @@
 # Profile for installing/configuring PACS dcm4chee
 class profile::dcm4chee {
-  $java_path = hiera('java_path')
+  $java_oracle_path = hiera('java_oracle_path')
   $database_host = hiera('database_host')
   $dcm4chee_database_name = hiera('dcm4chee_database_name')
   $dcm4chee_database_owner = hiera('dcm4chee_database_owner')
@@ -10,7 +10,7 @@ class profile::dcm4chee {
   $jboss_java_opts = hiera('dcm4chee_jboss_java_opts')
 
   class { '::dcm4chee':
-    java_path                => $java_path,
+    java_path                => $java_oracle_path,
     db_host                  => $database_host,
     db_name                  => $dcm4chee_database_name,
     db_owner                 => $dcm4chee_database_owner,
