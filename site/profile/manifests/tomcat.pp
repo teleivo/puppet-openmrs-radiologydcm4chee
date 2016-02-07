@@ -1,6 +1,6 @@
 # Profile for installing/configuring tomcat7
 class profile::tomcat {
-  $tomcat_user = hiera('tomcat_user')
+
   $tomcat_catalina_base = hiera('tomcat_catalina_base')
   $tomcat_java_opts = hiera('tomcat_java_opts', [
                                                 '-Djava.awt.headless=true',
@@ -12,15 +12,7 @@ class profile::tomcat {
   $tomcat_admin_package_name = 'tomcat7-admin'
   $tomcat_service_name = 'tomcat7'
 
-  class { '::tomcat':
-    manage_user         => true,
-    user                => $tomcat_user,
-    install_from_source => false,
-  }
-  # did not specify fully qualified class name because
-  # its only supported from puppet >= 3.7 on
-  # and current puppet version is 3.4.3 on Ubuntu
-  contain 'tomcat'
+  contain '::tomcat'
 
   ::tomcat::instance { $tomcat_instance_name:
     package_name => $tomcat_package_name,
