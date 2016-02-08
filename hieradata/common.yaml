@@ -1,29 +1,32 @@
 ---
-database_host: 'localhost'
-java_oracle_version_major: '7'
-java_oracle_version_update: '67'
-java_oracle_install_dir: '/opt'
-java_oracle_path: '/opt/jdk1.7.0_67/bin/java'
-dcm4chee_database_name: 'pacsdb'
-dcm4chee_database_owner: 'dcm4chee'
-dcm4chee_database_owner_password: 'dcm4chee'
-dcm4chee_jboss_http_port: 8081
-dcm4chee_jboss_ajp_connector_port: 8089
-dcm4chee_jboss_java_opts:
+jdk_oracle::version: '7'
+jdk_oracle::version_update: '67'
+jdk_oracle::install_dir: '/opt'
+dcm4chee::database_type: 'mysql'
+dcm4chee::database_name: 'pacsdb'
+dcm4chee::database_owner_password: 'dcm4chee'
+dcm4chee::server_http_port: 8081
+dcm4chee::server_ajp_connector_port: 8089
+dcm4chee::server_java_path: '/opt/jdk1.7.0_67/bin/java'
+dcm4chee::server_java_opts:
   - '-Xms256m'
   - '-Xmx1024m'
   - '-XX:MaxPermSize=512m'
   - '-Dsun.rmi.dgc.client.gcInterval=3600000'
   - '-Dsun.rmi.dgc.server.gcInterval=3600000'
-tomcat_user: 'tomcat7'
-tomcat_catalina_base: '/var/lib/tomcat7/'
+tomcat::manage_user: true
+tomcat::user: &tomcat_user 'tomcat7'
+tomcat::install_from_source: false
+tomcat_catalina_base: &tomcat_catalina_base '/var/lib/tomcat7/'
 tomcat_java_opts:
   - '-Djava.awt.headless=true'
   - '-Xmx1024m'
   - '-XX:+UseConcMarkSweepGC'
-openmrs_application_data_directory: '/var/lib/OpenMRS/'
-openmrs_database_name: 'openmrs'
-openmrs_database_owner: 'openmrs'
-openmrs_database_owner_password: 'openmrs'
-staging::file::timeout: 800
-staging::deploy::timeout: 800
+openmrs::tomcat_user: *tomcat_user
+openmrs::tomcat_catalina_base: *tomcat_catalina_base
+openmrs::openmrs_application_data_directory: '/var/lib/OpenMRS/'
+openmrs::db_name: 'openmrs'
+openmrs::db_owner: 'openmrs'
+openmrs::db_owner_password: 'openmrs'
+staging::file::timeout: 12000
+staging::deploy::timeout: 12000
