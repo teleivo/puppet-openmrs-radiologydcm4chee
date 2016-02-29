@@ -28,5 +28,5 @@ openmrs::openmrs_application_data_directory: '/var/lib/OpenMRS/'
 openmrs::db_name: 'openmrs'
 openmrs::db_owner: 'openmrs'
 openmrs::db_owner_password: 'openmrs'
-staging::file::timeout: 12000
-staging::deploy::timeout: 12000
+staging::file::timeout: 0
+staging::deploy::timeout: 0
