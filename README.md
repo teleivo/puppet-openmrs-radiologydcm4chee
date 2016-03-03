@@ -1,5 +1,13 @@
 # puppet-openmrs-radiologydcm4chee
 
+**IMPORTANT NOTE: DICOM Wado + Weasis wont work right away**
+
+Since server `http://dicom.vital-it.ch:8087` is currently down libclib_jiio.so cannot automatically be exchanged for you.
+DICOM wado and thus opening images with weasis will not work from the start.
+Please exchange libclib_jiio.so yourself if you have it, otherwise follow *8. Mac OSX and Windows x64 specific changes for the WADO service* at https://dcm4che.atlassian.net/wiki/display/ee2/Installation/
+
+
+
 ####Table of Contents
 
 1. [Overview](#overview)
