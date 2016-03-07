@@ -22,13 +22,13 @@ Please exchange libclib_jiio.so yourself if you have it, otherwise follow *8. Ma
 
 ##Overview
 
-Puppet control repository including vagrant to automatically create required infrastructure for [OpenMRS] (http://openmrs.org/), [dcm4chee] (http://www.dcm4che.org/) and [openmrs-module-radiologydcm4chee] (https://github.com/openmrs/openmrs-module-radiologydcm4chee)
+Puppet control repository including vagrant to automatically create required infrastructure for [OpenMRS] (http://openmrs.org/), [dcm4chee] (http://www.dcm4che.org/) and [openmrs-module-radiology] (https://github.com/openmrs/openmrs-module-radiology)
 
 ##Project Description
 
 This project is a puppet control repository using [r10k] (https://github.com/puppetlabs/r10k) which helps you to provision a server running dcm4chee and OpenMRS.
 
-The goal is to ease development and help get people started with the OpenMRS module [openmrs-module-radiologydcm4chee] (https://github.com/openmrs/openmrs-module-radiologydcm4chee) a module adding RIS capabilities to OpenMRS.
+The goal is to ease development and help get people started with the OpenMRS module [openmrs-module-radiology] (https://github.com/openmrs/openmrs-module-radiology) a module adding RIS capabilities to OpenMRS.
 
 The provisioning of openmrs and dcm4chee is done by the following custom puppet modules:
 * [teleivo/dcm4chee] (https://github.com/teleivo/puppet-dcm4chee)
@@ -94,7 +94,7 @@ read/write access to the openmrs database? => Yes
     * Password => openmrs
 * Complete the remaining steps of the wizard
 
-Refer to [openmrs-module-radiologydcm4chee] (https://github.com/openmrs/openmrs-module-radiologydcm4chee) on how to build and deploy the radiology module in OpenMRS.
+Refer to [openmrs-module-radiology] (https://github.com/openmrs/openmrs-module-radiology) on how to build and deploy the radiology module in OpenMRS.
 
 #####dcm4chee
 * configure weasis as the web viewer at [localhost:8081/jmx-console/](http://localhost:8081/jmx-console/) section **dcm4chee.web, service=WebConfig** set
