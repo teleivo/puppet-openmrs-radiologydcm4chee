@@ -13,7 +13,7 @@ mod 'tylerwalts/jdk_oracle',
   :ref => '6d250b86e0dc54ce4331aa8bcbcd3706ca9363cf'
 mod 'teleivo-dcm4chee',
   :git => 'https://github.com/teleivo/puppet-dcm4chee.git',
-  :ref => 'ab865888b378e2b6f3614bfa657bcd15d4c4e14b'
+  :ref => '7adb7a0c4d488abf5d8c955f1575a7cf16f729dd'
 mod 'teleivo-openmrs',
   :git => 'https://github.com/teleivo/puppet-openmrs.git',
   :ref => '60e8ee04865943aec5ad10d8357a7698de6339f4'
