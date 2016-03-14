@@ -14,6 +14,9 @@ dcm4chee::server_java_opts:
   - '-XX:MaxPermSize=512m'
   - '-Dsun.rmi.dgc.client.gcInterval=3600000'
   - '-Dsun.rmi.dgc.server.gcInterval=3600000'
+dcm4chee::server_log_file_max_size: '10MB'
+dcm4chee::server_log_append: true
+dcm4chee::server_log_max_backups: 5
 tomcat::manage_user: true
 tomcat::user: &tomcat_user 'tomcat7'
 tomcat::install_from_source: false
