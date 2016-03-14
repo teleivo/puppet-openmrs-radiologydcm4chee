@@ -2,11 +2,11 @@
 # Configuration for librarian-puppet
 
 forge "https://forgeapi.puppetlabs.com"
-mod "puppetlabs/stdlib", "4.9.0"
+mod "puppetlabs/stdlib", "4.11.0"
 mod "nanliu/staging", "1.0.3"
 mod "puppetlabs/mysql", "3.6.2"
 mod "puppetlabs/tomcat", "1.3.2"
-mod "puppetlabs/apt", "2.1.0"
+mod "puppetlabs/apt", "2.2.0"
 
 mod 'tylerwalts/jdk_oracle',
   :git => 'https://github.com/tylerwalts/puppet-jdk_oracle.git',
