@@ -74,27 +74,9 @@ vagrant ssh
 ####Final configurations
 A few things are still needed to finish the installation and integrate OpenMRS with dcm4chee:
 #####OpenMRS
-Run through the [OpenMRS](http://localhost:8080/openmrs/) wizard to finish
-the OpenMRS installation. **Note that the OpenMRS database has not yet been created but
-will be created by the wizard. The database user openmrs (password=openmrs) with "CREATE
-DATABASE" privileges does already exist.**
+Please read and follow the wiki page [OpenMRS Installation Wizard](https://github.com/teleivo/puppet-openmrs-radiologydcm4chee/wiki/OpenMRS-Installation-Wizard) on how to finish the OpenMRS installation.
 
-In the wizard select/enter the following:
-* Which type of installation do you want? => Advanced
-* Step 1 of 5, Do you currently have an OpenMRS database installed that you
-would like to connect to? => No
-  - If no, what would you like to name this database? Database name => openmrs
-  - A user that has "CREATE DATABASE" privileges must be specified here...
-    * Username => openmrs
-    * Password => openmrs
-* Step 2 of 5, Do you currently have a database user other than root that has
-read/write access to the openmrs database? => Yes
-  - If yes, specify the login user name and password for that database user
-    * Username => openmrs
-    * Password => openmrs
-* Complete the remaining steps of the wizard
-
-Refer to [openmrs-module-radiology] (https://github.com/openmrs/openmrs-module-radiology) on how to build and deploy the radiology module in OpenMRS.
+After you finished the OpenMRS installation refer to [openmrs-module-radiology] (https://github.com/openmrs/openmrs-module-radiology) on how to build and deploy the radiology module in OpenMRS.
 
 #####dcm4chee
 * configure weasis as the web viewer at [localhost:8081/jmx-console/](http://localhost:8081/jmx-console/) section **dcm4chee.web, service=WebConfig** set
