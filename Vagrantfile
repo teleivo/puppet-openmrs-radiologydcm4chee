@@ -16,6 +16,8 @@ Vagrant.configure(2) do |config|
   config.vm.network "forwarded_port", guest: 11114, host: 8114
   # dcm4chee hl7 server port
   config.vm.network "forwarded_port", guest: 2575, host: 8115
+  # mysql port
+  config.vm.network "forwarded_port", guest: 3306, host: 3306
 
   # If true, then any SSH connections made will enable agent forwarding.
   # Default value: false
