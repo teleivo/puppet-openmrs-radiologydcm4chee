@@ -77,7 +77,8 @@ A few things are still needed to finish the installation and integrate OpenMRS w
 #####OpenMRS
 Please read and follow the wiki page [OpenMRS Installation Wizard](https://github.com/teleivo/puppet-openmrs-radiologydcm4chee/wiki/OpenMRS-Installation-Wizard) on how to finish the OpenMRS installation.
 
-After you finished the OpenMRS installation refer to [openmrs-module-radiology] (https://github.com/openmrs/openmrs-module-radiology) on how to build and deploy the radiology module in OpenMRS.
+#####OpenMRS Radiology Module
+Once you are able to login to OpenMRS you need to deploy the OpenMRS radiology module. Please refer to [openmrs-module-radiology] (https://github.com/openmrs/openmrs-module-radiology) on how to build and deploy the radiology module to OpenMRS.
 
 #####dcm4chee
 Please read and follow the wiki page [Dcm4chee Configuration](https://github.com/teleivo/puppet-openmrs-radiologydcm4chee/wiki/Dcm4chee-Configuration) on how to connect the OpenMRS radiology module with dcm4chee and how to setup the DICOM web viewer weasis.
