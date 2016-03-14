@@ -73,17 +73,14 @@ vagrant ssh
 
 ####Final configurations
 A few things are still needed to finish the installation and integrate OpenMRS with dcm4chee:
+
 #####OpenMRS
 Please read and follow the wiki page [OpenMRS Installation Wizard](https://github.com/teleivo/puppet-openmrs-radiologydcm4chee/wiki/OpenMRS-Installation-Wizard) on how to finish the OpenMRS installation.
 
 After you finished the OpenMRS installation refer to [openmrs-module-radiology] (https://github.com/openmrs/openmrs-module-radiology) on how to build and deploy the radiology module in OpenMRS.
 
 #####dcm4chee
-* configure weasis as the web viewer at [localhost:8081/jmx-console/](http://localhost:8081/jmx-console/) section **dcm4chee.web, service=WebConfig** set
-  - WebviewerNames= *weasis*
-  - WebviewerBaseUrls= *weasis:/weasis-pacs-connector/viewer-applet*
-* add the radiology module as DICOM Application Entity at [localhost:8081/dcm4chee-web3/](http://localhost:8081/dcm4chee-web3/)
-* configure DICOM MPPS message forwarding to the OpenMRS radiology module at [localhost:8081/jmx-console/](http://localhost:8081/jmx-console/) section **dcm4chee.archive, service=MPPSScu**
+Please read and follow the wiki page [Dcm4chee Configuration](https://github.com/teleivo/puppet-openmrs-radiologydcm4chee/wiki/Dcm4chee-Configuration) on how to connect the OpenMRS radiology module with dcm4chee and how to setup the DICOM web viewer weasis.
 
 ###How to speed up recreating a fresh VM
 Once you have completed all steps in [How to get started](#how-to-get-started) its a good idea to create your own custom vagrant box.
