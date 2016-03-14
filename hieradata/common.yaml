@@ -31,5 +31,8 @@ openmrs::openmrs_application_data_directory: '/var/lib/OpenMRS/'
 openmrs::db_name: 'openmrs'
 openmrs::db_owner: 'openmrs'
 openmrs::db_owner_password: 'openmrs'
+mysql::server::override_options:
+  mysqld:
+    bind-address: 0.0.0.0
 staging::file::timeout: 0
 staging::deploy::timeout: 0
