@@ -12,7 +12,7 @@ locales::default_locale: 'en_US.UTF-8'
 jdk_oracle::version: '7'
 jdk_oracle::version_update: '67'
 jdk_oracle::install_dir: '/opt'
-dcm4chee::database_type: 'mysql'
+dcm4chee::database_type: 'postgresql'
 dcm4chee::database_name: 'pacsdb'
 dcm4chee::database_owner_password: 'dcm4chee'
 dcm4chee::server_http_port: 8081

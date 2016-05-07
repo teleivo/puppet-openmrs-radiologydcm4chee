@@ -6,19 +6,20 @@ Vagrant.configure(2) do |config|
   config.vm.hostname = "rispacs.openmrs.org"
 
   # Ports
+  # postgresql port
+  config.vm.network "forwarded_port", guest: 5432, host: 5432
+
   # tomcat port (openmrs)
   config.vm.network "forwarded_port", guest: 8080, host: 8080
-  # dcm4chee jboss/tomcat port
-  config.vm.network "forwarded_port", guest: 8081, host: 8081
-  config.vm.network "forwarded_port", guest: 8082, host: 8082
-  # dcm4chee dicom server port
-  config.vm.network "forwarded_port", guest: 11112, host: 8112
-  # openmrs-module-radiologydcm4chee dicom server port
-  config.vm.network "forwarded_port", guest: 11114, host: 8114
-  # dcm4chee hl7 server port
-  config.vm.network "forwarded_port", guest: 2575, host: 8115
-  # mysql port
-  config.vm.network "forwarded_port", guest: 3306, host: 3306
+  ## dcm4chee jboss/tomcat port
+  #config.vm.network "forwarded_port", guest: 8081, host: 8081
+  #config.vm.network "forwarded_port", guest: 8082, host: 8082
+  ## dcm4chee dicom server port
+  #config.vm.network "forwarded_port", guest: 11112, host: 8112
+  ## openmrs-module-radiologydcm4chee dicom server port
+  #config.vm.network "forwarded_port", guest: 11114, host: 8114
+  ## dcm4chee hl7 server port
+  #config.vm.network "forwarded_port", guest: 2575, host: 8115
 
   # If true, then any SSH connections made will enable agent forwarding.
   # Default value: false

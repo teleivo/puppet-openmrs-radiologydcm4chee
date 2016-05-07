@@ -5,8 +5,11 @@ forge "https://forgeapi.puppetlabs.com"
 mod "puppetlabs/stdlib", "4.12.0"
 mod "nanliu/staging", "1.0.3"
 mod "puppetlabs/mysql", "3.7.0"
+mod "puppetlabs/mysql", "3.6.2"
+mod "puppetlabs/postgresql", "4.7.1"
 mod "puppetlabs/tomcat", "1.3.2"
 mod "puppetlabs/apt", "2.2.2"
+mod "puppetlabs/concat", "2.1.0"
 
 mod 'saz/locales', '2.2.2'
 
