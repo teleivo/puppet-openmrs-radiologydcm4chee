@@ -1,4 +1,10 @@
 ---
+packages_present:
+  - 'unzip'
+  - 'curl'
+  - 'python-software-properties'
+  - 'augeas-tools'
+
 jdk_oracle::version: '7'
 jdk_oracle::version_update: '67'
 jdk_oracle::install_dir: '/opt'

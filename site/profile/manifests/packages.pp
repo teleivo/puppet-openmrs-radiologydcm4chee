@@ -1,12 +1,6 @@
 # Profile for installing necessary packages
 class profile::packages {
 
-  package { [ 'unzip',
-              'curl',
-              'python-software-properties',
-              'software-properties-common',
-              'augeas-tools'
-  ]:
-    ensure => present
-  }
+  $packages_present = hiera_array('packages_present', [])
+  ensure_resource('package', $packages_present, {'ensure' => 'present'})
 }
