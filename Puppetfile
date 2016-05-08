@@ -8,6 +8,8 @@ mod "puppetlabs/mysql", "3.7.0"
 mod "puppetlabs/tomcat", "1.3.2"
 mod "puppetlabs/apt", "2.2.2"
 
+mod 'saz/locales', '2.2.2'
+
 mod 'tylerwalts/jdk_oracle',
   :git => 'https://github.com/tylerwalts/puppet-jdk_oracle.git',
   :ref => '6d250b86e0dc54ce4331aa8bcbcd3706ca9363cf'

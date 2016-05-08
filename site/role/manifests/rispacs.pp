@@ -1,7 +1,7 @@
 # Role for installing/configuring RIS/PACS applications
 class role::rispacs {
 
-  include 'profile::packages'
+  include 'profile::base'
   include 'mysql::server'
 
   $openmrs_db_owner = hiera('openmrs::db_owner', 'openmrs')
@@ -39,21 +39,21 @@ class role::rispacs {
   }
 
   class { 'profile::java_oracle':
-    require => Class['profile::packages'],
+    require => Class['profile::base'],
   }
 
   class { 'profile::tomcat':
-    require => Class['profile::packages'],
+    require => Class['profile::base'],
   }
 
   class { 'profile::openmrs':
-    require => [ Class['profile::packages'],
+    require => [ Class['profile::base'],
                 Class['profile::tomcat'],
     ]
   }
 
   class { 'profile::dcm4chee':
-    require => [ Class['profile::packages'],
+    require => [ Class['profile::base'],
                 Class['profile::java_oracle'],
     ]
   }

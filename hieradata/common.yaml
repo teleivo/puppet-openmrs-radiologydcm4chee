@@ -5,6 +5,10 @@ packages_present:
   - 'python-software-properties'
   - 'augeas-tools'
 
+locales::locales:
+  - 'en_US.UTF-8 UTF-8'
+locales::default_locale: 'en_US.UTF-8'
+
 jdk_oracle::version: '7'
 jdk_oracle::version_update: '67'
 jdk_oracle::install_dir: '/opt'
